@@ -3,13 +3,15 @@ require "bundler/setup"
 require 'mongoid'
 
 Mongoid.configure do |config|
-  name = "mongoid_globalize_test"
-  config.autocreate_indexes = true
-  db = Mongo::Connection.new.db(name)
-  db.add_user("mongoid", "test")
-  config.master = db
-  config.logger = Logger.new($stdout, :warn)
+  config.connect_to('mongoid_globalize_test', consistency: :strong)
 end
+#Mongoid.configure do |config|
+#  name = "mongoid_globalize_test"
+#  db = Mongo::Connection.new.db(name)
+#  db.add_user("mongoid", "test")
+#  config.master = db
+#  config.logger = Logger.new($stdout, :warn)
+#end
 
 require 'mongoid_globalize'
 require File.expand_path('../data/models', __FILE__)
@@ -28,7 +30,7 @@ RSpec.configure do |config|
   end
 
   config.after :each do
-    DatabaseCleaner.clean
+    #DatabaseCleaner.clean
     # because rspec run all specs in one thread
     Thread.current[:globalize_locale] = nil
   end

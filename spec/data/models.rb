@@ -9,7 +9,7 @@ class Post
     field :published_at, :type => DateTime
   end
   validates_presence_of :title
-  scope :with_some_title, :conditions => { :title => 'some_title' }
+  scope :with_some_title, where(title: 'some_title')
 end
 
 class PostTranslation
