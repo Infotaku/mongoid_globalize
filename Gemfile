@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
-gem "mongo"
-gem 'mongoid' #, '~> 3.0.0' #, :git => 'git://github.com/mongoid/mongoid.git', :tag => 'v2.4.2'
+#gem "mongo"
+#gem 'mongoid' #, '~> 3.0.0' #, :git => 'git://github.com/mongoid/mongoid.git', :tag => 'v2.4.2'
 #gem 'bson_ext', '~> 1.5'
+gem 'mongoid', :github=>"mongoid/mongoid"
 
 group :development, :test do
   gem 'rdoc'
