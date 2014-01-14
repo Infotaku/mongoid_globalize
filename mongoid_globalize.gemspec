@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mik-die"]
-  s.date = "2012-02-23"
-  s.description = "Library for translating Mongoid 3 documents, based on Globalize3 principles"
+  s.date = "2014-01-14"
+  s.description = "Library for translating Mongoid documents, based on Globalize3 principles"
   s.email = "MikDiet@gmail.com"
   s.extra_rdoc_files = [
     "README.textile"
@@ -49,36 +49,33 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/Mik-die/mongoid_globalize"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.24"
   s.summary = "Library for translating Mongoid documents"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<mongoid>, ["~> 3.1.4"])
+      s.add_runtime_dependency(%q<mongoid>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 0"])
       s.add_development_dependency(%q<mongoid-rspec>, [">= 0"])
       s.add_development_dependency(%q<database_cleaner>, [">= 0"])
-      s.add_development_dependency(%q<ruby-debug19>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
-      s.add_dependency(%q<mongoid>, ["~> 3.1.4"])
+      s.add_dependency(%q<mongoid>, [">= 0"])
       s.add_dependency(%q<rdoc>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 0"])
       s.add_dependency(%q<mongoid-rspec>, [">= 0"])
       s.add_dependency(%q<database_cleaner>, [">= 0"])
-      s.add_dependency(%q<ruby-debug19>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
-    s.add_dependency(%q<mongoid>, ["~> 3.1.4"])
+    s.add_dependency(%q<mongoid>, [">= 0"])
     s.add_dependency(%q<rdoc>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<mongoid-rspec>, [">= 0"])
     s.add_dependency(%q<database_cleaner>, [">= 0"])
-    s.add_dependency(%q<ruby-debug19>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
