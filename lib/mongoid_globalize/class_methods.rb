@@ -13,7 +13,7 @@ module Mongoid::Globalize
     def with_translations(*locales)
       locales = translated_locales if locales.empty?
       #where :translations.matches => {:locale => {"$in" => locales.flatten}}.merge(required_fields_criteria)
-      where :translations => {"$matches" => {:locale => {"$in" => locales.flatten}}.merge(required_fields_criteria)}
+      where :translations => {"$elemMatch" => {:locale => {"$in" => locales.flatten}}.merge(required_fields_criteria)}
     end
 
     # Returns structures hash of attributes with presence validations for using
