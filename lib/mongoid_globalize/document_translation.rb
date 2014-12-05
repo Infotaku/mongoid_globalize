@@ -15,7 +15,8 @@ module Mongoid::Globalize
       # Returns Mongoid::Criteria
       def with_locales(*locales)
         locales = locales.flatten.map(&:to_s)
-        where(:locale.in => locales)
+        #where(:locale.in => locales)
+        where(:locale => {"$in" => locales})
       end
       alias with_locale with_locales
 
