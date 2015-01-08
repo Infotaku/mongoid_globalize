@@ -59,21 +59,15 @@ module Mongoid::Globalize
     # Mongoid::Globalize::DocumentTranslation, creates other side for embeded
     # relationship.
     def translation_class
-      puts '0.2.6.4'
       @translation_class ||= begin
         klass = self.const_get(:Translation, false) rescue nil
-        puts "For: #{self}"
-        puts "Class is : #{klass}"
         if klass.nil?
           super_klass = self.const_get(:Translation) rescue nil
-          puts "Super-Class is : #{super_klass}"
           if super_klass.nil?
             klass = self.const_set(:Translation, Class.new(Mongoid::Globalize::DocumentTranslation))
           else
             klass = self.const_set(:Translation, Class.new(super_klass))
           end
-          puts "Class is now : #{klass}"
-          puts "Super-Class is now : #{klass.superclass}"
         end
         klass.embedded_in (superclass == Object) ? name.underscore.gsub('/', '_') : superclass.name.underscore.gsub('/', '_'),
                                            class_name: name
