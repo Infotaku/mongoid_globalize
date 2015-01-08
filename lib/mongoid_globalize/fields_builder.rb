@@ -10,7 +10,7 @@ module Mongoid::Globalize
     # Param String or Symbol
     # Other params are the same as for Mongoid's +field+
     def field(name, *params)
-      @model.translated_attribute_names.push name.to_sym
+      @model.translated_attribute_names = (@model.translated_attribute_names + [name.to_sym])
       @model.translated_attr_accessor(name)
       @model.translation_class.field name, *params
     end
