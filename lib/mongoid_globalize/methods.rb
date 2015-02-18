@@ -89,7 +89,7 @@ module Mongoid::Globalize
     # Return Hash
     def translated_attributes
       @translated_attributes ||= translated_attribute_names.inject({}) do |attrs, name|
-        attrs.merge(name.to_s => translation.send(name))
+        attrs.merge(name.to_s => translation.try(:send, name))
       end
     end
 
@@ -150,7 +150,7 @@ module Mongoid::Globalize
       @stop_merging_translated_attributes = true
       unless @translation_caches[locale]
         _translation = translations.find_by_locale(locale)
-        _translation ||= translations.build(:locale => locale)
+        #_translation ||= translations.build(:locale => locale)
         @translation_caches[locale] = _translation
       end
       @stop_merging_translated_attributes = false
