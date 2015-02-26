@@ -150,7 +150,7 @@ module Mongoid::Globalize
       @stop_merging_translated_attributes = true
       unless @translation_caches[locale]
         _translation = translations.find_by_locale(locale)
-        #_translation ||= translations.build(:locale => locale)
+        _translation ||= translations.build(:locale => locale)
         @translation_caches[locale] = _translation
       end
       @stop_merging_translated_attributes = false
